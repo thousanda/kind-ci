@@ -23,12 +23,12 @@ jobs:
           ./kubectl version --client
       - name: create kind cluster
         run: |
-          cat <<-EOS
+          cat <<-EOS > ./config.yaml
             kind: Cluster
             apiVersion: kind.x-k8s.io/v1alpha4
             nodes:
               - role: control-plane
                 image: kindest/node:v$K8S_VERSION
               - role: worker
-          EOS > ./config.yaml
+          EOS
           kind create cluster --config=./config.yaml
