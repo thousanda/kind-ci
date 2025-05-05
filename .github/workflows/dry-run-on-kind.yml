@@ -23,3 +23,5 @@ jobs:
           ./kubectl version --client
       - name: create kind cluster
         run: kind create cluster --config=./ci/kind-config.yaml
+      - name: kubectl version
+        run: kubectl version
