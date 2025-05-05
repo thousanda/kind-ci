@@ -4,8 +4,6 @@ on:
   push:
   pull_request:
     branches: [ main ]
-env:
-  K8S_VERSION: "1.33.0"
 jobs:
   dry-run:
     runs-on: ubuntu-latest
@@ -18,7 +16,7 @@ jobs:
           ./kind version
       - name: install kubectl
         run: |
-          curl -LO https://dl.k8s.io/release/v${K8S_VERSION}/bin/linux/amd64/kubectl
+          curl -LO https://dl.k8s.io/release/v1.33.0/bin/linux/amd64/kubectl
           chmod +x ./kubectl
           ./kubectl version --client
       - name: create kind cluster
