@@ -9,3 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: hello
+        run: |
+          docker run -it hello-world
