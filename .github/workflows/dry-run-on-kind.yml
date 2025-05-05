@@ -21,3 +21,14 @@ jobs:
           curl -LO https://dl.k8s.io/release/v${K8S_VERSION}/bin/linux/amd64/kubectl
           chmod +x ./kubectl
           ./kubectl version --client
+      - name: create kind cluster
+        run: |
+          cat <<-EOS
+            kind: Cluster
+            apiVersion: kind.x-k8s.io/v1alpha4
+            nodes:
+              - role: control-plane
+                image: kindest/node:v$K8S_VERSION
+              - role: worker
+          EOS > ./config.yaml
+          kind create cluster --config=./config.yaml
