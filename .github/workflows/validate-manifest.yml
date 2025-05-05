@@ -1,11 +1,11 @@
-name: Dry run on kind
+name: Validate manifest
 
 on:
   push:
   pull_request:
     branches: [ main ]
 jobs:
-  dry-run:
+  dry-run-on-kind:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,6 +20,9 @@ jobs:
           chmod +x ./kubectl
           ./kubectl version --client
       - name: create kind cluster
-        run: kind create cluster --config=./ci/kind-config.yaml
-      - name: kubectl version
-        run: kubectl version
+        run: |
+          ./kind create cluster --config=./ci/kind-config.yaml
+          kubectl version
+      - name: dry run
+        run: |
+          kubectl apply -f ./manifest --dry-run=server
