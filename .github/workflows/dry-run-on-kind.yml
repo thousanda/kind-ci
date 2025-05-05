@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: hello
         run: |
-          docker run -it hello-world
+          docker run hello-world
