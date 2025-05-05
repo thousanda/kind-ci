@@ -11,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: hello
-        run: |
-          docker run hello-world
       - name: install kind
         run: |
           [ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-linux-amd64
@@ -24,4 +21,3 @@ jobs:
           curl -LO https://dl.k8s.io/release/v${K8S_VERSION}/bin/linux/amd64/kubectl
           chmod +x ./kubectl
           ./kubectl version --client
-
