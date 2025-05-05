@@ -25,4 +25,4 @@ jobs:
           kubectl version
       - name: dry run
         run: |
-          kubectl apply -f ./manifest/pod.yaml --dry-run=server
+          kubectl apply -f ./manifest --dry-run=server
