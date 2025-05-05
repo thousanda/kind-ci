@@ -6,6 +6,8 @@ kindでKubernetesクラスターを作成し、そこでdry-runを試すこと�
 
 kindはKubernetes in Dockerの略で、ローカルで軽量なKubernetesクラスターを立ち上げるためのツールです。コンテナでnodeを構成するため、このような名前になっています。
 
+https://kind.sigs.k8s.io/
+
 ## ディレクトリ構成
 ### CI
 #### GitHub Actions
