@@ -33,6 +33,15 @@ kindクラスターを作る時に使う設定ファイルです。
 ### Manifest
 ```
 manifest
-└── pod.yaml
+├── kustomized
+│   ├── kustomization.yaml
+│   ├── patch.yaml
+│   └── pod.yaml
+└── pure
+    └── pod.yaml
 ```
 検証の対象となるマニフェストの例です。
+
+`pure/` には、そのままapply可能なマニフェストが置かれています。
+
+`kustomized` には、kustomizeでpatchを当てて適用することが前提となったマニフェストが置かれています。
