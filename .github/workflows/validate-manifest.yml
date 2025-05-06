@@ -22,7 +22,7 @@ jobs:
       - name: create kind cluster
         run: |
           ./kind create cluster --config=./ci/kind-config.yaml
-          kubectl version
+          ./kubectl version
       - name: dry run
         run: |
-          kubectl apply -f ./manifest --dry-run=server
+          ./kubectl apply -f ./manifest --dry-run=server
