@@ -22,7 +22,8 @@ jobs:
       - name: create kind cluster
         run: |
           ./kind create cluster --config=./ci/kind-config.yaml
-          kubectl version
-      - name: dry run
-        run: |
-          kubectl apply -f ./manifest --dry-run=server
+          ./kubectl version
+      - name: dry run for pure manifests
+        run: ./kubectl apply -f ./manifest/pure --dry-run=server
+      - name: dry run for kustomized manifests
+        run: ./kubectl apply -k ./manifest/kustomized --dry-run=server
